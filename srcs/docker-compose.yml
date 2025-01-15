@@ -4,23 +4,23 @@ services:
     init: true
     container_name: mariadb
     build: requirements/mariadb
-    restart: on-failure
+    restart: always
     env_file: .env
     volumes:
       - mariadb:/var/lib/mysql
     networks:
-      - VoidThatBinds
+      - inception-network
   
   wordpress:
     init: true
     container_name: wordpress
     build: requirements/wordpress
-    restart: on-failure
+    restart: always
     env_file: .env
     volumes:
       - wordpress:/var/www/wp/
     networks:
-      - VoidThatBinds
+      - inception-network
     depends_on:
       - mariadb
 
@@ -28,12 +28,12 @@ services:
     init: true
     container_name: nginx
     build: requirements/nginx
-    restart: on-failure
+    restart: always
     env_file: .env
     volumes:
       - wordpress:/var/www/wp/
     networks:
-      - VoidThatBinds
+      - inception-network
     depends_on:
       - wordpress
     ports:
@@ -42,7 +42,7 @@ services:
 
 networks:
 
-  VoidThatBinds:
+  inception-network:
     driver: bridge
 
 
