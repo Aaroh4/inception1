@@ -6,7 +6,7 @@ RUN mkdir -p /etc/nginx/ssl
 RUN openssl req -x509 -nodes \
     -out /etc/nginx/ssl/certificate.crt \
     -keyout /etc/nginx/ssl/certificate.key \
-    -subj "/C=FI/ST=UUSIMA/L=HELSINKI/O=HIVE/OU=HIVE/CN=ahamalai.42.fr"
+    -subj "/C=FI/ST=UUSIMA/L=HELSINKI/O=HIVE/OU=HIVE/CN=ahamalai"
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
