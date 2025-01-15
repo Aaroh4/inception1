@@ -2,13 +2,13 @@ all: wordpress_data mariadb_data
 	make up
 
 up: wordpress_data mariadb_data
-	docker compose -f sources/docker-compose.yml up -d --build
+	docker compose -f srcs/docker-compose.yml up -d --build
 
 down:
-	docker compose -f sources/docker-compose.yml down
+	docker compose -f srcs/docker-compose.yml down
 
 clean:
-	docker compose -f sources/docker-compose.yml down --volumes --rmi all
+	docker compose -f srcs/docker-compose.yml down --volumes --rmi all
 
 fclean: clean
 	rm -rf wordpress_data mariadb_data
