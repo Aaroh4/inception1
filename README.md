@@ -1,6 +1,6 @@
 # inception1
 
-sftp localhost -p 8080
+sftp -P 4242 username@localhost
 
 
 put -r asd/
