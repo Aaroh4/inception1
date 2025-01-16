@@ -11,7 +11,7 @@ clean:
 	docker compose -f srcs/docker-compose.yml down --volumes --rmi all
 
 fclean: clean
-	rm -rf wordpress_data mariadb_data
+	sudo rm -rf ~/data/mariadb ~/data/wordpress
 
 re: fclean
 	make all
